@@ -1,0 +1,71 @@
+body {
+    background: #1b1b1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 253, 127);
+}
+form {
+    background: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius:10px ;
+    height: 500px;
+    width: 400px;
+}
+input {
+    background-color: #333333;
+    border-radius: 7px;
+    border: 2px solid #1b1b1b;
+    box-shadow: rgb(255, 1, 1) 2px 2px 2px;
+    transform: 0.4 ease;
+    transition: color 0.4 ease, background-color 0,4 ease, box-shadow;
+
+}
+input:hover {
+    transform: 0.4 ease;
+}
+
+/*file cv*/
+
+#CV {
+
+}
+#css_file {
+    background-color: ;<
+    dis
+}
+.btn-gradient {
+    /* Le dégradé : direction (to right), couleur 1, couleur 2 */
+    background: linear-gradient(to right, #f50303 0%, #ffe601 100%);
+    
+    /* On enlève les bordures par défaut */
+    border: none;
+    border-radius: 5px;
+    
+    /* Texte et espacement */
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; /* Pour l'animation */
+    margin-top: 20px;
+}
+
+/* Effet au survol de la souris */
+.btn-gradient:hover {
+    /* On change légèrement le dégradé ou on ajoute de l'ombre */
+    background: linear-gradient(to right, #fe9000 0%, #f70000 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Petit saut vers le haut */
+}
+
+/* Effet au clic */
+.btn-gradient:active {
+    transform: translateY(0);
+}
