@@ -1,35 +1,196 @@
 <!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recrutement Pompier Volontaire</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <style>
+        /* Styles de base si style.css absent */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffe5c7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+        h1 { color: #ffffff; margin-bottom: .5rem; text-align: center; }
+        p.intro { 
+            color: #ff0000;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: absolute;
+            top: -10px;
+            }
 
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.12);
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            background-color:rgba(0, 0, 0, 0.3);
+        }
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-header h2 { color: #e63946; flex: 1; }
+        .form-header img { width: 70px; border-radius: 8px; }
+
+        .field { margin-bottom: 1.1rem; }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: .3rem;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="file"] {
+            width: 100%;
+            padding: .55rem .8rem;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color .2s;
+        }
+        input:focus { outline: none; border-color: #e63946; }
+
+        .btn-gradient {
+            width: 100%;
+            padding: .75rem;
+            background: linear-gradient(135deg, #e63946, #c1121f);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: .5rem;
+            transition: opacity .2s;
+        }
+        .btn-gradient:hover { opacity: .88; }
+
+        footer {
+            margin-top: 2rem;
+            color: #aaa;
+            font-size: .85rem;
+            z-index: 2;
+            position: absolute;
+            bottom: 10px;
+        }
+        .admin-link {
+            margin-top: 1rem;
+            font-size: .85rem;
+            color: #aaa;
+            text-align: center;
+        }
+        .admin-link a { color: #e63946; }
+
+        p{
+            font-size: large;
+            margin:20px;
+            color:red;
+        }
+        #Coté {
+            color:Red;
+            background-color: #faf1e6;
+            border-radius: 10px 10px 10px;
+            position: absolute;
+            left:5%;
+            top:50%;
+            height: 300px;
+            margin: 5px;
+            padding: 10px;
+            box-shadow: #c1121f 10px 10px 10px;
+        }
+        #Coté:hover{
+            box-shadow:red 3px 3px 3px;
+        }
+        #photopompier {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            position: fixed;       /* fixé par rapport à la fenêtre */
+            top: 50%;              /* position verticale */
+            left: 50%;             /* position horizontale */
+            transform: translate(-50%, -50%); /* centrage parfait */
+
+            z-index: -1;           /* derrière les autres éléments */
+            width: 1400px;
+        }
+        #pfoot{
+            position: relative;
+            bottom:-10px;
+            position: absolute;
+            bottom: 100px;
+        }
+    </style>
+</head>
 <body>
 
-    <h1>Recrutement Pompier Volontaire</h1>
-    <p>Veuillez remplir toute les cases pour pouvoir être prit consideration.</p>
-    <form action="/submit-page" method="POST">
-    
+    <h1></h1>
+    <p class="intro">Veuillez remplir toutes les cases pour être pris en considération.</p>
 
-        <h2>Formulaire de recrutement</h2><img src="caserne79.png" width="20%">
-        
-        <label for="id_name" id="name1">Name :</label>
-        <input type="text" placeholder="Enter your name"><br>
-        <label for="id_email" id="email">Email :</label>  
-        <input type="email" placeholder="Enter your email"><br>
-        <label for="id_password" id="password">Password :</label>
-        <input type="password" placeholder="Enter your password"><br>
-        <label for="Phonenum" id="Phonenumber">Phone Number :</label>
-        <input type="number" placeholder="+1 xxx-xxx-xxxx">
-        <br>
-        <label for="id_CV" id="CV">CV</label>
-        <input type="file" id="css_file">        
-        <br>
-        <button type="submit" class="btn-gradient">Envoyer</button>
+    <form action="/submit-page" method="POST" enctype="multipart/form-data">
+
+        <div class="form-header">
+            <h2>Formulaire de recrutement</h2>
+            <img src="caserne79.png" alt="Caserne" onerror="this.style.display='none'">
+        </div>
+
+        <div class="field">
+            <label for="id_name">Nom complet *</label>
+            <input type="text" id="id_name" name="name" placeholder="prénom" required>
+        </div>
+
+        <div class="field">
+            <label for="id_email">Email *</label>
+            <input type="email" id="id_email" name="email" placeholder="prénom@exemple.com" required>
+        </div>
+
+        <div class="field">
+            <label for="id_password">Mot de passe *</label>
+            <input type="password" id="id_password" name="password" placeholder="Créez un mot de passe" required>
+        </div>
+
+        <div class="field">
+            <label for="id_phone">Numéro de téléphone</label>
+            <input type="tel" id="id_phone" name="phone" placeholder="+1 xxx-xxx-xxxx">
+        </div>
+
+        <div class="field">
+            <label for="id_cv">CV (PDF, DOC, DOCX – max 10 Mo)</label>
+            <input type="file" id="id_cv" name="cv" accept=".pdf,.doc,.docx">
+        </div>
+
+        <button type="submit" class="btn-gradient">Envoyer ma candidature</button>
     </form>
 
+    <p id="pfoot">Veuillez vérifiez toute les infomations.</p>
 
+    <div>
+        <span id="Coté">Ne pas oublié d'apporter<br> pièce d'identité avec vous lors <br>de votre rencontres. <br> Ce site ne vous garantit pas<br> un poste chez les pompier <br><br>*SI VOUS Ê
+            TES RAPPELEZ*<br><br>
+        Num: 000 000 0000<br>Heure D'ouverture:<br>1. Quand il y a un appel<br>2. Jamais<br>3. Contactez le directeur car<br></span>
+         <img src="caserne79.png" width="100px" z-index="10" id="photopompier">
+    </div>
+
+
+
+    <footer>@Samuel Picoutlaigan | 2026 Caserne 79</footer>
 
 </body>
-<footer> @Wolfex 2026</footer>
+</html>
